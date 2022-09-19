@@ -4,55 +4,59 @@ app = Flask(__name__)
 
 from app.database import data_types
 
+RESPONSE = {
+    "status": "OK"
+}
+
 
 # ---------- GET ------------
 @app.get("/data_types")
 def index():
-    out = data_types.scan()
-    return out
+    response = dict(RESPONSE)
+    response["data_types"] = data_types.scan()
+    return response
 
 @app.get("/data_types/integer")
 def integers():
-    out = data_types.select_by_type(name="Integer")
-    return out
+    response = dict(RESPONSE)
+    response["data_type"] = data_types.select_by_type(name="Integer")
+    return response
 
 @app.get("/data_types/float")
 def floats():
-    out = data_types.select_by_type(name="Float")
-    return out
+    response = dict(RESPONSE)
+    response["data_type"] = data_types.select_by_type(name="Float")
+    return response
 
 @app.get("/data_types/boolean")
 def booleans():
-    out = data_types.select_by_type(name="Boolean")
-    return out
+    response = dict(RESPONSE)
+    response["data_type"] = data_types.select_by_type(name="Boolean")
+    return response
 
 @app.get("/data_types/string")
 def string():
-    out = data_types.select_by_type(name="String")
-    return out
+    response = dict(RESPONSE)
+    response["data_type"] = data_types.select_by_type(name="String")
+    return response
 
 @app.get("/data_types/list")
 def list():
-    out = data_types.select_by_type(name="List")
-    return out
+    response = dict(RESPONSE)
+    response["data_type"] = data_types.select_by_type(name="List")
+    return response
 
 @app.get("/data_types/dictionary")
 def dictionary():
-    out = data_types.select_by_type(name="Dictionary")
-    return out
+    response = dict(RESPONSE)
+    response["data_type"] = data_types.select_by_type(name="Dictionary")
+    return response
 
 @app.get("/data_types/tuple")
 def tuple():
-    out = data_types.select_by_type(name="Tuple")
-    return out
-
-@app.get("/data_types/summary")
-def summary():
-    return "Summary"
-
-@app.get("/about")
-def about():
-    return "About me"
+    response = dict(RESPONSE)
+    response["data_type"] = data_types.select_by_type(name="Tuple")
+    return response
 
 
 # ---------- POST ------------

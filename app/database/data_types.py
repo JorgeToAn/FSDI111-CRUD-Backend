@@ -8,7 +8,9 @@ def output_formatter(results):
             "id": result[0],
             "name": result[1],
             "summary": result[2],
-            "description": result[3]
+            "description": result[3],
+            "pass_by": result[4],
+            "example": result[5]
         }
         out.append(entry)
     return out
